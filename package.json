@@ -1,0 +1,15 @@
+{
+  "name": "gumdrop",
+  "version": "0.0.1",
+  "description": "Designed to keep you focused, Gumdrop is am API wrapper around you favorite Docs and AI platform. Plug them in and have AI powered documentation generated for you on commit.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.github.com/Zakpak0/gumdrop"
+  },
+  "author": "Zakhary Oliver",
+  "license": "ISC"
+}
