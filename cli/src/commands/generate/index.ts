@@ -10,7 +10,8 @@ export default function (program: Command) {
         "Send documentation to a DocumentationServer for generation to DocumentationClient"
       )
       .alias("gen")
-      .option("-f, --file [string]", "Path to file to generate for"),
+      .option("-f, --file [string]", "Path to file to generate for")
+      .option("-n, --name [string]", "Name of the generated MD file"),
     () => import("./generateAsync")
   );
 }

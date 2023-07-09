@@ -1,11 +1,11 @@
 /**
  * Read and parse the config file.
  */
-export declare function readConfig(): Promise<any>;
+export declare function readConfig(): Promise<GumdropCLIConfig | undefined>;
 /**
  * The configuration for the Gumdrop CLI.
  */
-export interface GumConfig {
+export interface GumdropCLIConfig {
     /**
      * The path to the command interface file.
      */

@@ -1,3 +1,4 @@
+import { Gaxios } from "gaxios";
 /**
  * Defines the root interface for all clients that generate documentation
  * requests. All clients should implement this interface.
@@ -14,12 +15,16 @@ export interface CommandInterface {
     generateDocumentation(file: string): Promise<{
         completed: boolean;
         error?: string;
+        response?: string;
     }>;
 }
 export declare class OpenAICommandInterface implements CommandInterface {
+    constructor();
+    gaxios: Gaxios;
     generateDocumentation(file: string): Promise<{
         completed: boolean;
         error?: string | undefined;
+        response?: string | undefined;
     }>;
 }
 //# sourceMappingURL=command_interface.d.ts.map

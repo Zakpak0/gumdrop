@@ -1,4 +1,5 @@
 import { cosmiconfig } from "cosmiconfig";
+import GlobalOptions from "./api";
 const moduleName = "gumdrop";
 const explorer = cosmiconfig(moduleName, {
   searchPlaces: [
@@ -25,7 +26,7 @@ const explorer = cosmiconfig(moduleName, {
 /**
  * Read and parse the config file.
  */
-export async function readConfig(): Promise<GumdropCLIConfig | undefined> {
+export async function readConfig(): Promise<GumdropServerConfig | undefined> {
   const result = await explorer.search();
   return result?.config;
 }
@@ -33,13 +34,19 @@ export async function readConfig(): Promise<GumdropCLIConfig | undefined> {
 /**
  * The configuration for the Gumdrop CLI.
  */
-export interface GumdropCLIConfig {
+export interface GumdropServerConfig<V = GlobalOptions> {
   /**
-   * The path to the command interface file.
+   * The path to the entry point of your server.
    */
-  commandPath?: string;
+  serverPath?: string;
+  /**
+   * The path to the Server Interface file.
+   * The Interface should export a server interface implementation.
+   */
+  apiPath?: string;
   /**
    * The path of the your project's root directory.
    */
   basePath?: string;
+  options: V;
 }

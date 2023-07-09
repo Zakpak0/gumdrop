@@ -21,6 +21,7 @@ export async function generate(options: Record<string, any>): Promise<{
     command_interface = new OpenAICommandInterface();
   }
   const file = options?.file;
+  const name = options?.name;
   if (file == null || file.length == 0) {
     console.warn(
       `${chalk.red(
@@ -34,6 +35,9 @@ export async function generate(options: Record<string, any>): Promise<{
       readFile(file)
     );
     if (generation.completed) {
+      if(generation?.response && name){
+      fs.writeFileSync(`./${name}.md`, generation.response)
+      }
       console.log(
         `${chalk.green("Doucmented!")} ${fileName} \n ${chalk.green(
           "recieved:"
